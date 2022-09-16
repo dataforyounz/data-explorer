@@ -84,6 +84,7 @@ ui = shinydashboardPlus::dashboardPage(
                           column( width = 4,
                                  div(style = 'overflow-x: scroll', tableOutput("type") ) )
                           
+<<<<<<< HEAD
                         ),
                         
                         fluidRow(
@@ -92,6 +93,9 @@ ui = shinydashboardPlus::dashboardPage(
                           
                         )
                         
+=======
+                        )
+>>>>>>> 58ffc705dd7b38392c40aedc768e0f9a3ea702cd
                    )
                         
                 )
@@ -166,6 +170,7 @@ server = function(input, output, session) {
   }
   
   
+<<<<<<< HEAD
   output$by_type <- function(){
     
     # type <- unique( sapply( data(), class) )
@@ -189,6 +194,8 @@ server = function(input, output, session) {
   }
   
   
+=======
+>>>>>>> 58ffc705dd7b38392c40aedc768e0f9a3ea702cd
   
   # output$contents <- renderTable({
   #   
