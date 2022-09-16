@@ -3,6 +3,7 @@ library( shinydashboard )
 library( shinydashboardPlus )
 library( skimr )
 library( kableExtra )
+library( tidyverse )
 
 ui = shinydashboardPlus::dashboardPage(
   
@@ -12,6 +13,7 @@ ui = shinydashboardPlus::dashboardPage(
   header     = dashboardHeader(),
   controlbar = dashboardControlbar(),
   sidebar    = shinydashboardPlus::dashboardSidebar(
+    
     
     sidebarMenu(
       menuItem("Load Data", tabName = "tab_load", icon = icon("fas fa-upload") ),
@@ -35,8 +37,6 @@ ui = shinydashboardPlus::dashboardPage(
           " .well { background-color: #272c30;}"
           
         )),
-        
-        
         
         sidebarLayout(
 
@@ -65,11 +65,9 @@ ui = shinydashboardPlus::dashboardPage(
             radioButtons("disp", "Display",
                          choices = c(Head = "head",
                                      All = "all"),
-                         selected = "head")
-
+                         selected = "head"),
+          
           ),
-          
-          
           
           mainPanel = mainPanel(
             width = 9,
@@ -84,7 +82,6 @@ ui = shinydashboardPlus::dashboardPage(
                           column( width = 4,
                                  div(style = 'overflow-x: scroll', tableOutput("type") ) )
                           
-<<<<<<< HEAD
                         ),
                         
                         fluidRow(
@@ -93,9 +90,8 @@ ui = shinydashboardPlus::dashboardPage(
                           
                         )
                         
-=======
                         )
->>>>>>> 58ffc705dd7b38392c40aedc768e0f9a3ea702cd
+
                    )
                         
                 )
@@ -105,7 +101,6 @@ ui = shinydashboardPlus::dashboardPage(
       
       tabItem( tabName = "tab_2", box( title = "A Box!", collapsible = TRUE, verbatimTextOutput("plot") ) )
 
-    )
   ),
   
   footer  = dashboardFooter()
@@ -170,7 +165,7 @@ server = function(input, output, session) {
   }
   
   
-<<<<<<< HEAD
+
   output$by_type <- function(){
     
     # type <- unique( sapply( data(), class) )
@@ -194,8 +189,7 @@ server = function(input, output, session) {
   }
   
   
-=======
->>>>>>> 58ffc705dd7b38392c40aedc768e0f9a3ea702cd
+
   
   # output$contents <- renderTable({
   #   
