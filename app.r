@@ -30,10 +30,10 @@ ui = shinydashboardPlus::dashboardPage(
   
   body = dashboardBody(
     
-    ### File upload module ----
+    
     tabItems(
     
-            # Content of tab page
+            ### File upload module ----
             tabItem(
               
               tabName = "tab_load",
