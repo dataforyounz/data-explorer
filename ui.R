@@ -30,6 +30,15 @@ ui = shinydashboardPlus::dashboardPage(
   
   body = dashboardBody(
     
+    tabItems(
+      
+      tabItem( tabName = "tab_load",
+        
+               tags$style(HTML( " .well { background-color: #272c30;}")),
+               
+                module_upload_ui( "data_upload" )
+      )
+    )
   ),
   
   footer  = dashboardFooter()
