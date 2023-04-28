@@ -34,7 +34,7 @@ ui = shinydashboardPlus::dashboardPage(
       
       tabItem( tabName = "tab_load",
         
-               tags$style(HTML( " .well { background-color: #272c30;}")),
+               includeCSS( "www/styles.css" ),
                
                 module_upload_ui( "data_upload" )
       )
