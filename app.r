@@ -1,9 +1,3 @@
-library( shiny )
-library( shinydashboard )
-library( shinydashboardPlus )
-library( skimr )
-library( kableExtra )
-library( tidyverse )
 
 ui = shinydashboardPlus::dashboardPage(
   
@@ -12,32 +6,45 @@ ui = shinydashboardPlus::dashboardPage(
   
   header     = dashboardHeader(),
   controlbar = dashboardControlbar(),
-  sidebar    = shinydashboardPlus::dashboardSidebar(
+  
+  ## Sidebar --------------------------------------------------------------------------------
+  # Controls for sidebar layout
+  
+  sidebar = shinydashboardPlus::dashboardSidebar(
     
-    
+    # Sidebar menu
     sidebarMenu(
+      
+      # Menu tabs / item
       menuItem("Load Data", tabName = "tab_load", icon = icon("fas fa-upload") ),
       menuItem("Visualise", tabName = "tab_2", icon = icon("circle") )
-    )   
-  ),
+      
+    ) # End sidebar tabs
+    
+  ), # End sidebar menu
+  
+  
+  ## Body --------------------------------------------------------------------------------
+  # Controls for dashboard body
+  # Each tab should have a module associated with it
   
   body = dashboardBody(
     
+    ### File upload module ----
     tabItems(
+    
+            # Content of tab page
+            tabItem(
+              
+              tabName = "tab_load",
+              "Cuurently under test. Only accepts .csv files at the moment.",
       
-      #--------------------------FILE UPLOAD---------------------------#
-      
-      tabItem(
-        
-        tabName = "tab_load",
-        "Cuurently under test. Only accepts .csv files at the moment.",
-
-        tags$style(HTML(
-          
-          " .well { background-color: #272c30;}"
-          
-        )),
-        
+              tags$style(HTML(
+                
+                " .well { background-color: #272c30;}"
+                
+              )),
+              
         sidebarLayout(
 
           sidebarPanel = sidebarPanel(
