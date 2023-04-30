@@ -27,29 +27,41 @@ module_upload_ui <- function(id){
       mainPanel = mainPanel( width = 9,
                              
         # wrapping in fluidRow to stop overflow of table output
-        column(width = 12, 
+        column( width = 12, 
                
-               box( title = "Data", width = NULL, collapsible = TRUE, div(style = 'overflow-x: scroll', tableOutput("contents") ) ),
-               box( title = "Summary", width = NULL, collapsible = TRUE, 
+                # Data sample output box
+                box( title = "Data Viewer", width = NULL, collapsible = TRUE,
+                     div( style = 'overflow-x: scroll; height: 200px; overflow-y: scroll', 
+                          tableOutput( NS(id, "contents"))
+                        ) 
+                   ),
+               
+                # Data summary output box
+                box( title = "Summary", width = NULL, collapsible = TRUE, 
                     
                     fluidRow(
-                      column( width = 4,
-                              div(style = 'overflow-x: scroll', tableOutput("summary") ) ),
-                      column( width = 4,
-                              div(style = 'overflow-x: scroll', tableOutput("type") ) )
-                      
-                    ),
+                            column( width = 4,
+                                    div( style = 'overflow-x: scroll', 
+                                         tableOutput("summary") 
+                                       ) 
+                                  ),
+                            column( width = 4,
+                                    div( style = 'overflow-x: scroll', 
+                                         tableOutput("type") 
+                                       ) 
+                                  )
+                            ),
                     
                     fluidRow(
-                      column( width = 12,
-                              div(style = 'overflow-x: scroll', tableOutput("by_type") ) )
-                      
+                             column( width = 12,
+                                     div( style = 'overflow-x: scroll', 
+                                          tableOutput("by_type") 
+                                       ) 
+                                  )
+                            )
                     )
-                    
-               )
-        )
+            )
       ) # End Main panel 
-               
   ) # End sidebar layout
 }
 

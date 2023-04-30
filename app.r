@@ -139,13 +139,22 @@ server = function(input, output, session) {
   # 
   output$contents <- function(){
     
-    if( input$disp == "head"){
-      data_in <- head(data())
-    } else {
-      data_in <- data()
-    }
+    # if( input$disp == "head"){
+    #   data_in <- head(data())
+    # } else {
+    #   data_in <- data()
+    # }
+    # 
+    n_rows <- nrow( data() )
+    n_sample_rows <- 30
     
-    data_in %>% knitr::kable("html") %>% kable_styling( c("bordered", "hover"), full_width = F, position = "left", font_size = "12")
+    row_index <- sample( 1:n_rows, n_sample_rows, replace = F)
+    
+    data_in <- data()[row_index,]
+    
+    data_in %>% 
+      knitr::kable("html") %>% 
+      kable_styling( c("bordered", "hover"), full_width = F, position = "left", font_size = "11")
     
     
   }
